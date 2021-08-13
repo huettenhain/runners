@@ -60,7 +60,7 @@ void _declspec(noreturn) main() {
 	multi_t *argv = (multi_t*) CommandLineToArgvW(GetCommandLineW(), &argc);
 	if (argc < 2) {
 		usage();
-		return;
+		goto EPILOGUE;
 	}
 	HMODULE dll = LoadLibraryW(argv[argi++].argument);
 	if (!dll) {
